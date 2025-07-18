@@ -1,1 +1,13 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+.splide__slide img {
+  width: 100%;
+  height: auto;
+}
+
+.anchor{
+  display: block;
+  height: 115px; /*same height as header*/
+  margin-top: -115px; /*same height as header*/
+  visibility: hidden;
+}
