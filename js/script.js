@@ -73,3 +73,64 @@ setInterval(updateTime, 1000);
 updateTime(); // Initial call
 
 // form
+let inputName = document.getElementById('inputName'); let name = document.getElementById('yname');
+
+let inputDate = document.getElementById('inputDate');
+let date = document.getElementById('date');
+
+let maleInput = document.getElementById('inputMale');
+let femaleInput = document.getElementById('inputFemale');
+let gender = document.getElementById('gender');
+
+let textInput = document.getElementById('inputText');
+let text = document.getElementById('text');
+
+function submit() {
+
+if (inputName.value === '' || inputDate.value === '' || (!inputMale.checked && !inputFemale.checked )) {
+  document.querySelectorAll('input').forEach(e => e.reportValidity())
+} else {
+
+  yname.innerHTML = inputName.value;
+  date.innerHTML = inputDate.value;
+
+  if (inputMale.checked === true) {
+    gender.innerHTML = maleInput.value;
+  } else if (inputFemale.checked === true) {
+    gender.innerHTML = femaleInput.value;
+  }
+
+  text.innerHTML = inputText.value;
+}
+}
+
+let displayNameInput = document.getElementById('displayNameInput');
+let displayName = document.getElementById('displayName');
+
+displayNameInput.addEventListener('input', function () {
+  displayName.innerHTML = displayNameInput.value || 'Guest';
+  if (displayNameInput.value.length > 10) {
+    document.getElementById('full').innerHTML = 'Oops... sorry but name is too long to be diplayed!';
+  }
+});
+
+    const carousel = document.getElementById('carousel');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const totalSlides = carousel.children.length;
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const offset = -currentIndex * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    prev.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+    next.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    });
