@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
   popupButtons.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      fadeIn(popupWrap, 500);
+      fadeIn(popupWrap, 300);
     });
   });
 
   if (popupClose) {
     popupClose.addEventListener('click', function (e) {
       e.preventDefault();
-      fadeOut(popupWrap, 500);
+      fadeOut(popupWrap, 300);
     });
   }
 
@@ -63,3 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
     tick();
   }
 });
+
+function updateTime() {
+  const now = new Date();
+  const timeStr = now.toString(); // Full detailed date and time
+  document.getElementById("currentTime").innerHTML = `Current time: ${timeStr}`;
+}
+setInterval(updateTime, 1000);
+updateTime(); // Initial call
+
+// form
